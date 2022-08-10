@@ -1,64 +1,41 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1>Reto BACKBONE</h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Acerca de como lo resolví
 
-## About Laravel
+Para desarrollar el ejercicio hice lo siguiente:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Primero analicé la data para entender como se componia
+- Luego inicie el proyecto en laravel
+- Construí los componentes (controller, routes, models, migrations)
+- Apliqué recursividad para poder alimentar un array de datos segun la estructura deseada
+- Para incrementar el rendimiento, agregué indices en la base de datos
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+CREATE TABLE `zip_codes` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `d_codigo` int(11) NOT NULL,
+  `d_asenta` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `d_tipo_asenta` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `d_mnpio` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `d_estado` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `d_ciudad` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `d_CP` int(11) NOT NULL,
+  `c_estado` int(11) NOT NULL,
+  `c_oficina` int(11) NOT NULL,
+  `c_CP` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `c_tipo_asenta` int(11) NOT NULL,
+  `c_mnpio` int(11) NOT NULL,
+  `id_asenta_cpcons` int(11) NOT NULL,
+  `d_zona` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `c_cve_ciudad` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_codigo` (`d_codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=1498024 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+SELECT * FROM heroku_2fe72bea1e7af53.zip_codes;
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Y tambien, separé la recursividad para poder tener en el primer foreach la cabecera del array y luego el resto del cuerpo en otro array.
 
-## Learning Laravel
+Alberto Sanchez S.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Saludos
