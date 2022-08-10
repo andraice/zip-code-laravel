@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ZipCodeController extends Controller
 {
-    private function getZipCodes(String $zip_code)
+    public function getZipCodes(String $zip_code)
     {
         try {
             $zipCodesList = ZipCode::where('d_codigo', $zip_code)->get();

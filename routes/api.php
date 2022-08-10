@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/api/zip-codes/{zip_code}', [
+Route::get('/zip-codes/{zip_code}', [
     ZipCodeController::class,
     'getZipCodes'
 ]);
