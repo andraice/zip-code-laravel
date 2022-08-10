@@ -1,4 +1,9 @@
-<h1>Reto BACKBONE</h1>
+
+# Project Title
+
+A brief description of what this project does and who it's for
+
+# Reto BACKBONE
 
 ## Acerca de como lo resolví
 
@@ -10,7 +15,9 @@ Para desarrollar el ejercicio hice lo siguiente:
 - Apliqué recursividad para poder alimentar un array de datos segun la estructura deseada
 - Para incrementar el rendimiento, agregué indices en la base de datos
 
-CREATE TABLE `zip_codes` (
+
+```sql
+CREATE TABLE zip_codes (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `d_codigo` int(11) NOT NULL,
   `d_asenta` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -32,7 +39,8 @@ CREATE TABLE `zip_codes` (
   PRIMARY KEY (`id`),
   KEY `idx_codigo` (`d_codigo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1498024 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-SELECT * FROM heroku_2fe72bea1e7af53.zip_codes;
+
+```
 
 - Y tambien, separé la recursividad para poder tener en el primer foreach la cabecera del array y luego el resto del cuerpo en otro array.
 
