@@ -20,12 +20,12 @@ class ZipCodeController extends Controller
 
                     $federal_entity = array(
                         "key" => (int) $item['c_estado'],
-                        "name" => $item['d_estado'],
+                        "name" => strtoupper($item['d_estado']),
                         "code" => !isset($item['c_CP']) ? null : $item['c_CP']
                     );
                     $municipality = array(
                         "key" => (int) $item['c_mnpio'],
-                        "name" => $item['d_mnpio']
+                        "name" => strtoupper($item['d_mnpio'])
                     );
 
                     break;
@@ -35,10 +35,10 @@ class ZipCodeController extends Controller
                 foreach ($zipCodesList as $item) {
                     $settlements[] = array(
                         "key" => (int) $item['id_asenta_cpcons'],
-                        "name" => $item['d_asenta'],
-                        "zone_type" => $item['d_zona'],
+                        "name" => strtoupper($item['d_asenta']),
+                        "zone_type" => strtoupper($item['d_zona']),
                         "settlement_type" => array(
-                            "name" => $item['d_tipo_asenta']
+                            "name" => strtoupper($item['d_tipo_asenta'])
                         )
                     );
                 }
