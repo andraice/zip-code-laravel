@@ -13,7 +13,7 @@ class ZipCodeController extends Controller
             $zipCodesList = ZipCode::where('d_codigo', $zip_code)->get();
 
             if (isset($zipCodesList)) {
-                $firstItem = array_pop($zipCodesList);
+                $firstItem = $zipCodesList->first();
                 $locality = $firstItem['d_ciudad'];
 
                 $federal_entity = array(
@@ -25,7 +25,7 @@ class ZipCodeController extends Controller
                     "key" => (int) $firstItem['c_mnpio'],
                     "name" => $firstItem['d_mnpio']
                 );
-                
+
                 foreach ($zipCodesList as $item) {
                     $settlements[] = array(
                         "key" => (int) $item['id_asenta_cpcons'],
