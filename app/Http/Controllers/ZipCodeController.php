@@ -16,7 +16,7 @@ class ZipCodeController extends Controller
 
                 // extract only first
                 foreach ($zipCodesList as $item) {
-                    $locality = $item['d_ciudad'];
+                    $locality = strtoupper($item['d_ciudad']);
 
                     $federal_entity = array(
                         "key" => (int) $item['c_estado'],
@@ -38,7 +38,7 @@ class ZipCodeController extends Controller
                         "name" => strtoupper($item['d_asenta']),
                         "zone_type" => strtoupper($item['d_zona']),
                         "settlement_type" => array(
-                            "name" => strtoupper($item['d_tipo_asenta'])
+                            "name" =>($item['d_tipo_asenta'])
                         )
                     );
                 }
